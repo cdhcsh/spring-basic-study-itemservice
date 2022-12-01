@@ -1,14 +1,13 @@
 package repository.item;
 
-import domain.item.Item;
-import org.assertj.core.api.Assertions;
+import hello.itemservice.domain.Item;
+import hello.itemservice.repository.item.MemoryItemRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class MemoryItemRepositoryTest {
 

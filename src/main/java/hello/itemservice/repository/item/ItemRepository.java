@@ -1,6 +1,6 @@
-package repository.item;
+package hello.itemservice.repository.item;
 
-import domain.item.Item;
+import hello.itemservice.domain.Item;
 
 import java.util.List;
 
