@@ -62,14 +62,39 @@ public class BasicItemController {
         return "redirect:/basic/items/{itemId}";
     }
 
+    /**
+     * 상품 수정 폼
+     * @param itemId
+     * @param model
+     * @return
+     */
+    @GetMapping("/{itemId}/edit")
+    public String editForm(@PathVariable Long itemId, Model model) {
+        Item item = itemRepository.findById(itemId);
+        model.addAttribute("item", item);
+        return "basic/editForm";
+    }
+
+    /**
+     * 상품 수정
+     * @param itemId
+     * @param item
+     * @return
+     */
+    @PostMapping("/{itemId}/edit")
+    public String edit(@PathVariable Long itemId, @ModelAttribute Item item) {
+        itemRepository.update(itemId, item);
+        return "redirect:/basic/items/{itemId}";
+    }
 
     /**
      * 테스트용 데이터 추가
      */
     @PostConstruct
     public void init() {
-        itemRepository.save(new Item("itemA",10000,10));
-        itemRepository.save(new Item("itemB",15000,15));
+
+        itemRepository.save(new Item("itemA", 10000, 10));
+        itemRepository.save(new Item("itemB", 15000, 15));
     }
 
 }
